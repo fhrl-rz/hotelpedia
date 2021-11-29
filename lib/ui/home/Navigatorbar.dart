@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hotelpedia/ui/home/Home.dart';
+import 'package:hotelpedia/ui/list/list_search.dart';
 
 class NavigatorBar extends StatefulWidget {
   final int? initTab;

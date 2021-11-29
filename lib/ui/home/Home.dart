@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:hotelpedia/ui/list/detail.dart';
+import 'package:hotelpedia/ui/list/list_search.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -55,7 +57,12 @@ class _HomeState extends State<Home> {
                       Column(
                         children: [
                           TextFormField(
-                            onTap: () {},
+                            onTap: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => ListSearch()));
+                            },
                             controller: SearchField,
                             autofocus: false,
                             keyboardType: TextInputType.name,
@@ -144,58 +151,66 @@ class _HomeState extends State<Home> {
                         ],
                       ),
                       SizedBox(height: 10),
-                      Container(
-                        height: 270,
-                        child: ListView.builder(
-                            scrollDirection: Axis.horizontal,
-                            shrinkWrap: true,
-                            itemCount: freshList.length,
-                            itemBuilder: (context, index) {
-                              return Container(
-                                padding: EdgeInsets.only(),
-                                height: 200.0,
-                                width: 190.0,
-                                margin: EdgeInsets.only(
-                                  right: 15,
-                                ),
-                                decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.white,
-                                ),
-                                child: Stack(
-                                  overflow: Overflow.visible,
-                                  children: [
-                                    Center(
-                                      child: Image.asset(
-                                          padangList[index]["image"]),
-                                    ),
-                                    Positioned(
-                                      bottom: 30,
-                                      left: 20,
-                                      child: Text('Grandzurry Hotel',
-                                          style: TextStyle(
-                                            fontSize: 14,
-                                            fontWeight: FontWeight.bold,
-                                          )),
-                                    ),
-                                    Positioned(
-                                      bottom: 5,
-                                      right: 18,
-                                      child: Row(
-                                        children: [
-                                          Image.asset("images/location.png"),
-                                          SizedBox(width: 2),
-                                          Text('Padang, Sumatera Barat',
-                                              style: TextStyle(
-                                                fontSize: 10,
-                                              )),
-                                        ],
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Detail()));
+                        },
+                        child: Container(
+                          height: 270,
+                          child: ListView.builder(
+                              scrollDirection: Axis.horizontal,
+                              shrinkWrap: true,
+                              itemCount: freshList.length,
+                              itemBuilder: (context, index) {
+                                return Container(
+                                  padding: EdgeInsets.only(),
+                                  height: 200.0,
+                                  width: 190.0,
+                                  margin: EdgeInsets.only(
+                                    right: 15,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(20),
+                                    color: Colors.white,
+                                  ),
+                                  child: Stack(
+                                    overflow: Overflow.visible,
+                                    children: [
+                                      Center(
+                                        child: Image.asset(
+                                            padangList[index]["image"]),
                                       ),
-                                    ),
-                                  ],
-                                ),
-                              );
-                            }),
+                                      Positioned(
+                                        bottom: 30,
+                                        left: 20,
+                                        child: Text('Grandzurry Hotel',
+                                            style: TextStyle(
+                                              fontSize: 14,
+                                              fontWeight: FontWeight.bold,
+                                            )),
+                                      ),
+                                      Positioned(
+                                        bottom: 5,
+                                        right: 18,
+                                        child: Row(
+                                          children: [
+                                            Image.asset("images/location.png"),
+                                            SizedBox(width: 2),
+                                            Text('Padang, Sumatera Barat',
+                                                style: TextStyle(
+                                                  fontSize: 10,
+                                                )),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              }),
+                        ),
                       ),
                       SizedBox(height: 10),
                       Text(
