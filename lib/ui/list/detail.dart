@@ -20,9 +20,14 @@ class _DetailState extends State<Detail> {
     {"image": "images/hotelkiri.png"},
   ];
   List freshList = [
-    {"image": "images/room1.png"},
-    {"image": "images/room2.png"},
-
+    {
+      "image": "images/room1.png",
+      "name": "Superior",
+    },
+    {
+      "image": "images/room2.png",
+      "name": "Deluxe",
+    },
   ];
 
   Completer<GoogleMapController> _controller = Completer();
@@ -286,35 +291,52 @@ class _DetailState extends State<Detail> {
                         ),
                       ],
                     ),
-                    SizedBox(height: 10,),
+                    SizedBox(
+                      height: 10,
+                    ),
                     Row(
                       children: [
-                        Text('Choose Room',
-                        style: TextStyle(
-                          color: Color(0xff1E6091),
-                          fontWeight: FontWeight.bold,
-                        ),
+                        Text(
+                          'Choose Room',
+                          style: TextStyle(
+                            color: Color(0xff1E6091),
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(height: 5,),
+                    SizedBox(
+                      height: 5,
+                    ),
                     Container(
                       height: 300,
-                      child: ListView.builder(itemBuilder: (context, index){
+                      child: ListView.builder(itemBuilder: (context, index) {
                         return Container(
                           padding: EdgeInsets.only(left: 10),
-                          height: 190.0,
+                          height: 205.0,
                           width: 290.0,
+                          color: Colors.yellow,
                           margin: EdgeInsets.only(
-                            right: 30,
+                            bottom: 12,
                           ),
                           child: Stack(
                             overflow: Overflow.visible,
                             children: [
                               Positioned(
                                   left: -6,
-                                  child: Image.asset(
-                                      freshList[index]["image"])),
+                                  child:
+                                      Image.asset(freshList[index]["image"])),
+                              Container(
+                                alignment: Alignment.topLeft,
+                                child: Text(
+                                  freshList[index]["name"],
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ),
                             ],
                           ),
                         );
