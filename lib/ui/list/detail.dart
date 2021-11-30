@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+const LatLng SOURCE_LOCATION = LatLng(-6.296951600000007, 106.6984811);
+const LatLng DEST_LOCATION = LatLng(-6.296951600000007, 106.6984820);
+
 class Detail extends StatefulWidget {
   const Detail({Key? key}) : super(key: key);
 
@@ -17,9 +20,44 @@ class _DetailState extends State<Detail> {
   ];
 
   Completer<GoogleMapController> _controller = Completer();
+  late BitmapDescriptor sourceIcon;
+  late BitmapDescriptor destinationIcon;
+  Set<Marker> _markers = Set<Marker>();
+  late LatLng currentlocation;
+  late LatLng destinationLocation;
+
+  void initState() {
+    super.initState();
+
+    this.setInitialLocation();
+    //
+    //
+  }
+
+  void setSourceAndDestinationMarkerIcons() async {
+    sourceIcon = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(devicePixelRatio: 2.0), 'images/source_pin.png');
+    destinationIcon = await BitmapDescriptor.fromAssetImage(
+        ImageConfiguration(devicePixelRatio: 2.0), 'images/destination_pin.png');
+  }
+
+  void setInitialLocation() {
+    currentlocation = LatLng(
+      SOURCE_LOCATION.latitude,
+      SOURCE_LOCATION.latitude,
+    );
+
+    destinationLocation = LatLng(
+      DEST_LOCATION.latitude,
+      DEST_LOCATION.latitude,
+    );
+  }
+
   static final CameraPosition _kGooglePlex = CameraPosition(
-    target: LatLng(-6.296951600000007, 106.6984811),
-    zoom: 14.4746,
+    target: SOURCE_LOCATION,
+    zoom: 16,
+    tilt: 80,
+    bearing: 30,
   );
 
   static final CameraPosition _kLake = CameraPosition(
@@ -136,10 +174,15 @@ class _DetailState extends State<Detail> {
                         Container(
                           height: 200,
                           child: GoogleMap(
+                            myLocationEnabled: true,
+                            compassEnabled: false,
+                            tiltGesturesEnabled: false,
+                            markers: _markers,
                             mapType: MapType.hybrid,
                             initialCameraPosition: _kGooglePlex,
                             onMapCreated: (GoogleMapController controller) {
                               _controller.complete(controller);
+                              showPinsOnMap();
                             },
                           ),
                         ),
@@ -153,5 +196,18 @@ class _DetailState extends State<Detail> {
         ),
       ),
     );
+  }
+
+  void showPinsOnMap() {
+    _markers.add(Marker(
+      markerId: MarkerId('source Pin'),
+      position: currentlocation,
+      icon:  sourceIcon,
+    ));
+    _markers.add(Marker(
+      markerId: MarkerId('Destination Pin'),
+      position: destinationLocation,
+      icon:  destinationIcon,
+    ));
   }
 }
