@@ -1,4 +1,7 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Detail extends StatefulWidget {
   const Detail({Key? key}) : super(key: key);
@@ -12,6 +15,18 @@ class _DetailState extends State<Detail> {
     {"image": "images/hotelkanan.png"},
     {"image": "images/hotelkiri.png"},
   ];
+
+  Completer<GoogleMapController> _controller = Completer();
+  static final CameraPosition _kGooglePlex = CameraPosition(
+    target: LatLng(-6.296951600000007, 106.6984811),
+    zoom: 14.4746,
+  );
+
+  static final CameraPosition _kLake = CameraPosition(
+      // bearing: 192.8334901395799,
+      target: LatLng(-6.296951600000007, 106.6984811),
+      // tilt: 59.440717697143555,
+      zoom: 14.4746);
 
   @override
   Widget build(BuildContext context) {
@@ -112,7 +127,24 @@ class _DetailState extends State<Detail> {
                           ),
                         ),
                       ],
-                    )
+                    ),
+                    SizedBox(
+                      height: 20,
+                    ),
+                    Column(
+                      children: [
+                        Container(
+                          height: 200,
+                          child: GoogleMap(
+                            mapType: MapType.hybrid,
+                            initialCameraPosition: _kGooglePlex,
+                            onMapCreated: (GoogleMapController controller) {
+                              _controller.complete(controller);
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),

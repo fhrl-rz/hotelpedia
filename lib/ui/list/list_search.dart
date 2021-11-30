@@ -67,7 +67,7 @@ class _ListSearchState extends State<ListSearch> {
                       height: 10,
                     ),
                     Container(
-                      height: 700,
+                      height: 704,
                       child: ListView.builder(
                           scrollDirection: Axis.vertical,
                           shrinkWrap: true,
