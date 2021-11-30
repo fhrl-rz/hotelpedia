@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hotelpedia/ui/list/checkout.dart';
 
 const LatLng SOURCE_LOCATION = LatLng(-6.296951600000007, 106.6984811);
 const LatLng DEST_LOCATION = LatLng(-6.296951600000007, 106.6984820);
@@ -309,13 +310,13 @@ class _DetailState extends State<Detail> {
                       height: 5,
                     ),
                     Container(
-                      height: 300,
+                      height: 420,
                       child: ListView.builder(itemBuilder: (context, index) {
                         return Container(
                           padding: EdgeInsets.only(left: 10),
                           height: 205.0,
                           width: 290.0,
-                          color: Colors.yellow,
+                          color: Colors.transparent,
                           margin: EdgeInsets.only(
                             bottom: 12,
                           ),
@@ -323,20 +324,84 @@ class _DetailState extends State<Detail> {
                             overflow: Overflow.visible,
                             children: [
                               Positioned(
-                                  left: -6,
+                                  left: -8,
                                   child:
                                       Image.asset(freshList[index]["image"])),
-                              Container(
-                                alignment: Alignment.topLeft,
+                              Positioned(
+                                right: 90,
+                                top: 10,
                                 child: Text(
                                   freshList[index]["name"],
                                   style: TextStyle(
-                                    color: Colors.black,
+                                    color: Color(0xff1E6091),
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
+                              ),Positioned(
+                                right: 8,
+                                bottom: 70,
+                                child: Text(
+                                  'Rp. 400.000',
+                                  style: TextStyle(color: Color(0xff000000),
+                                  fontWeight: FontWeight.bold,
+                                  ),
+                                ),
                               ),
+                              Positioned(
+                                top: 55,
+                                right: 50,
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.bed, color: Color(0xff52B69A)),
+                                    SizedBox( width: 25,),
+                                    Icon(Icons.account_circle_sharp, color: Color(0xff52B69A)),
+
+                                  ],
+                                ),
+                              ),Positioned(
+                                top: 85,
+                                right: 50,
+                                child: Row(
+                                  children: [
+                                    Icon(Icons.wifi, color: Color(0xff52B69A)),
+                                    SizedBox( width: 25,),
+                                    Icon(Icons.restaurant_menu, color: Color(0xff52B69A)),
+
+                                  ],
+                                ),
+                              ),
+                              Positioned(
+                                right: 70,
+                                bottom: 20,
+                                child: Text('(2 kamar tersedia)',
+                              style: TextStyle(color: Colors.red,
+                              fontSize: 11,
+                              ),
+                              ),),
+                              Positioned(
+                                right: 5,
+                                bottom: 5,
+                                child: TextButton(onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (context) => Checkout()));
+                                },
+                                child: Text('Order',
+                                style: TextStyle(
+                                  color: Color(0xffffffff),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                                ),
+                                style: ButtonStyle(
+                                  foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                                  backgroundColor: MaterialStateProperty.all<Color>(Colors.blue),
+                                  shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(8.0),
+                                    side: BorderSide(color: Colors.blue),
+                                  ))
+                                ),
+
+                              ),),
                             ],
                           ),
                         );
