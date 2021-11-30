@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
@@ -17,6 +18,11 @@ class _DetailState extends State<Detail> {
   List fahrulList = [
     {"image": "images/hotelkanan.png"},
     {"image": "images/hotelkiri.png"},
+  ];
+  List freshList = [
+    {"image": "images/room1.png"},
+    {"image": "images/room2.png"},
+
   ];
 
   Completer<GoogleMapController> _controller = Completer();
@@ -38,7 +44,8 @@ class _DetailState extends State<Detail> {
     sourceIcon = await BitmapDescriptor.fromAssetImage(
         ImageConfiguration(devicePixelRatio: 2.0), 'images/source_pin.png');
     destinationIcon = await BitmapDescriptor.fromAssetImage(
-        ImageConfiguration(devicePixelRatio: 2.0), 'images/destination_pin.png');
+        ImageConfiguration(devicePixelRatio: 2.0),
+        'images/destination_pin.png');
   }
 
   void setInitialLocation() {
@@ -98,7 +105,7 @@ class _DetailState extends State<Detail> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Container(
                       height: 210,
@@ -167,7 +174,7 @@ class _DetailState extends State<Detail> {
                       ],
                     ),
                     SizedBox(
-                      height: 20,
+                      height: 10,
                     ),
                     Column(
                       children: [
@@ -188,6 +195,131 @@ class _DetailState extends State<Detail> {
                         ),
                       ],
                     ),
+                    SizedBox(
+                      height: 5,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Text(
+                          'open map',
+                          style: TextStyle(color: Color(0xff52B69A)),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Text(
+                          'Fasilitas',
+                          style: TextStyle(
+                            color: Color(0xff1E6091),
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.ac_unit,
+                              color: Color(0xff52B69A),
+                            ),
+                            Text(
+                              'AC',
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.wifi,
+                              color: Color(0xff52B69A),
+                            ),
+                            Text(
+                              'Wifi',
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.restaurant_menu,
+                              color: Color(0xff52B69A),
+                            ),
+                            Text(
+                              'Restaurant',
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Icon(
+                              Icons.pool,
+                              color: Color(0xff52B69A),
+                            ),
+                            Text(
+                              'Pool',
+                              style: TextStyle(
+                                fontSize: 12,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 10,),
+                    Row(
+                      children: [
+                        Text('Choose Room',
+                        style: TextStyle(
+                          color: Color(0xff1E6091),
+                          fontWeight: FontWeight.bold,
+                        ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 5,),
+                    Container(
+                      height: 300,
+                      child: ListView.builder(itemBuilder: (context, index){
+                        return Container(
+                          padding: EdgeInsets.only(left: 10),
+                          height: 190.0,
+                          width: 290.0,
+                          margin: EdgeInsets.only(
+                            right: 30,
+                          ),
+                          child: Stack(
+                            overflow: Overflow.visible,
+                            children: [
+                              Positioned(
+                                  left: -6,
+                                  child: Image.asset(
+                                      freshList[index]["image"])),
+                            ],
+                          ),
+                        );
+                      }),
+                    ),
                   ],
                 ),
               ),
@@ -202,12 +334,12 @@ class _DetailState extends State<Detail> {
     _markers.add(Marker(
       markerId: MarkerId('source Pin'),
       position: currentlocation,
-      icon:  sourceIcon,
+      icon: sourceIcon,
     ));
     _markers.add(Marker(
       markerId: MarkerId('Destination Pin'),
       position: destinationLocation,
-      icon:  destinationIcon,
+      icon: destinationIcon,
     ));
   }
 }
