@@ -54,6 +54,9 @@ class _SignInState extends State<SignIn> {
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
                         labelText: "Email",
+                        labelStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                         prefixIcon: Icon(Icons.email),
                       ),
                     ),
@@ -82,6 +85,9 @@ class _SignInState extends State<SignIn> {
                           child: Icon(Icons.visibility),
                         ),
                         hintText: " Password ",
+                        hintStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                         prefixIcon: Icon(
                           Icons.lock,
                         ),
@@ -108,7 +114,7 @@ class _SignInState extends State<SignIn> {
                             style: TextStyle(
                               color: Color(0xff52B69A),
                               fontSize: 12,
-                              fontWeight: FontWeight.normal,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
@@ -141,6 +147,7 @@ class _SignInState extends State<SignIn> {
                                 style: TextStyle(
                                   color: Color(0xffFFFFFF),
                                   fontSize: 16,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -168,6 +175,7 @@ class _SignInState extends State<SignIn> {
                           style: TextStyle(
                             color: Color(0xff52B69A),
                             fontSize: 15,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),

@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hotelpedia/ui/home/Home.dart';
+import 'package:hotelpedia/ui/inbox/inbox.dart';
 import 'package:hotelpedia/ui/list/list_search.dart';
+import 'package:hotelpedia/ui/list/order_list.dart';
+import 'package:hotelpedia/ui/profil/profil.dart';
 
 class NavigatorBar extends StatefulWidget {
   final int? initTab;
@@ -11,7 +14,7 @@ class NavigatorBar extends StatefulWidget {
 }
 
 class _NavigatorBarState extends State<NavigatorBar> {
-  int _selectedNavBar = 0;
+  int _selectedNavBar = 3;
 
   void _changeSelectedNavBar(int index) {
     setState(() {
@@ -21,6 +24,9 @@ class _NavigatorBarState extends State<NavigatorBar> {
 
   final _widgetOptions = [
     Home(),
+    OrderList(),
+    Inbox(),
+    Profil(),
   ];
 
   @override
@@ -41,9 +47,10 @@ class _NavigatorBarState extends State<NavigatorBar> {
           currentIndex: _selectedNavBar,
           backgroundColor: Colors.transparent,
           elevation: 0,
-          type: BottomNavigationBarType.fixed,
+          type: BottomNavigationBarType.shifting,
           items: [
             BottomNavigationBarItem(
+
               icon: Icon(Icons.home),
               label: "Home",
             ),
@@ -55,7 +62,7 @@ class _NavigatorBarState extends State<NavigatorBar> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.person),
-              label: "profile",
+               label: "profile",
             ),
           ],
           selectedItemColor: Color(0xff52B69A),

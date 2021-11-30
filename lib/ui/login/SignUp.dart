@@ -54,6 +54,9 @@ class _SignUpState extends State<SignUp> {
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
                         labelText: "Email",
+                        labelStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                         prefixIcon: Icon(Icons.email),
                       ),
                     ),
@@ -77,11 +80,10 @@ class _SignUpState extends State<SignUp> {
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
-                        // suffixIcon: InkWell(
-                        //   onTap: _togglePasswordView,
-                        //   child: Icon(Icons.visibility),
-                        // ),
                         hintText: " Password ",
+                        hintStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                         prefixIcon: Icon(
                           Icons.lock,
                         ),
@@ -101,6 +103,9 @@ class _SignUpState extends State<SignUp> {
                           borderRadius: BorderRadius.all(Radius.circular(8.0)),
                         ),
                         labelText: "Full Name",
+                        labelStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                         prefixIcon: Icon(Icons.person),
                       ),
                     ),
@@ -112,6 +117,9 @@ class _SignUpState extends State<SignUp> {
                     child: IntlPhoneField(
                       decoration: InputDecoration(
                         labelText: 'Phone Number',
+                        labelStyle: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
                         border: OutlineInputBorder(
                           borderSide: BorderSide(),
                         ),
@@ -145,6 +153,7 @@ class _SignUpState extends State<SignUp> {
                                 style: TextStyle(
                                   color: Color(0xffFFFFFF),
                                   fontSize: 16,
+                                  fontWeight: FontWeight.bold,
                                 ),
                               ),
                             ),
@@ -168,10 +177,11 @@ class _SignUpState extends State<SignUp> {
                                   builder: (context) => SignIn()));
                         },
                         child: Text(
-                          "SignUp",
+                          "Sign In",
                           style: TextStyle(
                             color: Color(0xff52B69A),
                             fontSize: 15,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                       ),

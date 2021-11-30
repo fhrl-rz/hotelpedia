@@ -14,7 +14,16 @@ class _OrderListState extends State<OrderList> {
       data: ThemeData(fontFamily: "Montserrat"),
       child: Scaffold(
         appBar: AppBar(
-          title: Text("Order List"),
+          elevation: 0,
+          automaticallyImplyLeading: false,
+          backgroundColor: Colors.transparent,
+          title: Text("Order List",
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            fontSize: 20,
+            color: Color(0xff141414),
+          ),
+          ),
           centerTitle: true,
         ),
       ),
