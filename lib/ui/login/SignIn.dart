@@ -27,7 +27,7 @@ class _SignInState extends State<SignIn> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   SizedBox(
-                    height: 90,
+                    height: 140,
                   ),
                   Center(
                     child: Container(
@@ -122,7 +122,7 @@ class _SignInState extends State<SignIn> {
                     ],
                   ),
                   SizedBox(
-                    height: 40,
+                    height: 60,
                   ),
                   Row(
                     children: [
@@ -157,7 +157,7 @@ class _SignInState extends State<SignIn> {
                     ],
                   ),
                   SizedBox(
-                    height: 150,
+                    height: 180,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,

@@ -133,7 +133,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                   ),
                   SizedBox(
-                    height: 70,
+                    height: 30,
                   ),
                   Row(
                     children: [
@@ -163,7 +163,7 @@ class _SignUpState extends State<SignUp> {
                     ],
                   ),
                   SizedBox(
-                    height: 80,
+                    height: 100,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
