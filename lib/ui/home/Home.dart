@@ -65,7 +65,7 @@ class _HomeState extends State<Home> {
                                       builder: (context) => ListSeacrch()));
                             },
                             controller: SearchField,
-                            autofocus: false,
+                            autofocus: true,
                             keyboardType: TextInputType.name,
                             textInputAction: TextInputAction.next,
                             decoration: InputDecoration(
