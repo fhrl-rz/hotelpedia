@@ -75,6 +75,7 @@ class _ProfilState extends State<Profil> {
               ),
             ),
             ListTile(
+
               trailing: IconButton(
                 onPressed: () {},
                 icon: Icon(
@@ -90,6 +91,7 @@ class _ProfilState extends State<Profil> {
                 ),
               ),
               onTap: () {},
+              dense: true,
             ),
             ListTile(
               trailing: IconButton(
@@ -105,6 +107,7 @@ class _ProfilState extends State<Profil> {
                 ),
               ),
               onTap: () {},
+              dense: true,
             ),
             ListTile(
               trailing: IconButton(
@@ -122,6 +125,7 @@ class _ProfilState extends State<Profil> {
                 ),
               ),
               onTap: () {},
+              dense: true,
             ),
             ListTile(
               trailing: IconButton(
@@ -137,6 +141,7 @@ class _ProfilState extends State<Profil> {
                 ),
               ),
               onTap: () {},
+              dense: true,
             ),
             ListTile(
               title: const Text(

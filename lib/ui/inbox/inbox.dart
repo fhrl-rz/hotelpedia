@@ -20,6 +20,9 @@ class _InboxState extends State<Inbox> {
                 Tab(text: "Semua"),
                 Tab(text: "Belum Dibaca"),
               ],
+              unselectedLabelStyle: TextStyle(
+                fontFamily: "Montserrat",
+              ),
               labelColor: Colors.white,
               indicatorSize: TabBarIndicatorSize.tab,
               unselectedLabelColor: Colors.grey,

@@ -106,6 +106,7 @@ class _DetailState extends State<Detail> {
           child: Column(
             children: [
               Container(
+
                 padding: EdgeInsets.symmetric(horizontal: 15),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,

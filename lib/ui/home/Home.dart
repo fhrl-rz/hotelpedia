@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hotelpedia/ui/list/detail.dart';
 import 'package:hotelpedia/ui/list/list_search.dart';
+import 'package:hotelpedia/ui/list/list_search1.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -61,7 +62,7 @@ class _HomeState extends State<Home> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ListSearch()));
+                                      builder: (context) => ListSeacrch()));
                             },
                             controller: SearchField,
                             autofocus: false,
