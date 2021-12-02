@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "932231230367",
+    "project_id": "hotelpediaapp-77e23",
+    "storage_bucket": "hotelpediaapp-77e23.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:932231230367:android:332e637d03bc4a405c03aa",
+        "android_client_info": {
+          "package_name": "com.example.hotelpedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "932231230367-k62h3tb8qd5rkd1q82a6rd7gbn8aob0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hotelpedia",
+            "certificate_hash": "39ae707b887283e673d9a0d0f80e37eb8685d6d6"
+          }
+        },
+        {
+          "client_id": "932231230367-8g1pg05258gg14r1u51loufod8htm5t4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjU6tQlPpNsv3IL6CbAHAHU7UgV1pAQjE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "932231230367-8g1pg05258gg14r1u51loufod8htm5t4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
