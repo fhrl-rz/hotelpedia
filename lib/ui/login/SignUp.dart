@@ -16,7 +16,7 @@ class SignUp extends StatefulWidget {
 class _SignUpState extends State<SignUp> {
   final TextEditingController emailController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
-  final TextEditingController PhoneController = new TextEditingController();
+  final TextEditingController phoneController = new TextEditingController();
   final TextEditingController fullNameController = new TextEditingController();
   final _formKey = GlobalKey<FormState>();
   bool isHiddenPassword = true;
@@ -97,6 +97,7 @@ class _SignUpState extends State<SignUp> {
                         style: TextStyle(
                           fontSize: 16,
                         ),
+                        controller: passwordController,
                         autovalidateMode: AutovalidateMode.onUserInteraction,
                         obscureText: isHiddenPassword,
                         textInputAction: TextInputAction.done,
@@ -161,7 +162,7 @@ class _SignUpState extends State<SignUp> {
                     ),
                     Container(
                       child: IntlPhoneField(
-                        controller: PhoneController,
+                        controller: phoneController,
                         decoration: InputDecoration(
                           labelText: 'Phone Number',
                           labelStyle: TextStyle(
@@ -269,7 +270,7 @@ class _SignUpState extends State<SignUp> {
     userModel.uid = user.uid;
     userModel.password = passwordController.text;
     userModel.fullName = fullNameController.text;
-    userModel.PhoneNumber = PhoneController.text;
+    userModel.PhoneNumber = phoneController.text;
 
     await firebaseFirestore
         .collection("user")
