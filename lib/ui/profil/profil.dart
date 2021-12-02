@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:hotelpedia/ui/login/SignIn.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hotelpedia/ui/model/usermodel.dart';
 
 class Profil extends StatefulWidget {
   const Profil({Key? key}) : super(key: key);
@@ -9,6 +12,22 @@ class Profil extends StatefulWidget {
 }
 
 class _ProfilState extends State<Profil> {
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("user")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -56,17 +75,20 @@ class _ProfilState extends State<Profil> {
                           width: 10,
                         ),
                         Text(
-                          'Fahrul Riza',
+                          '${loggedInUser.fullName} ',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             color: Color(0xff0014a8),
                           ),
                         ),
-                        SizedBox(height: 10,),
-                        Text('edit profil',
-                        style: TextStyle(
-                          color: Colors.grey,
+                        SizedBox(
+                          height: 10,
                         ),
+                        Text(
+                          'edit profil',
+                          style: TextStyle(
+                            color: Colors.grey,
+                          ),
                         ),
                       ],
                     ),
@@ -75,7 +97,6 @@ class _ProfilState extends State<Profil> {
               ),
             ),
             ListTile(
-
               trailing: IconButton(
                 onPressed: () {},
                 icon: Icon(

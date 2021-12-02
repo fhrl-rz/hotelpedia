@@ -134,46 +134,46 @@ class _CheckoutState extends State<Checkout> {
                     Text('Check Out'),
                   ],
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          selectDate.toString(),
-                        ),
-                        OutlineButton(
-                          onPressed: () {
-                            showDatePicker(
-                                context: context,
-                                initialDate: selectDate,
-                                firstDate: DateTime(2020),
-                                lastDate: DateTime(2050));
-                          },
-                          child: Text('DATE PICKER'),
-                        ),
-                      ],
-                    ),
-                    DropdownButton(
-                      value: _value,
-                      items: [
-                        DropdownMenuItem(
-                          child: Text('firts item'),
-                          value: 1,
-                        ),
-                        DropdownMenuItem(
-                          child: Text('firts item'),
-                          value: 2,
-                        ),
-                      ],
-                      onChanged: (value) {
-                        setState(() {
-                          value = _value;
-                        });
-                      },
-                    ),
-                  ],
-                ),
+                // Row(
+                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
+                //   children: [
+                //     Column(
+                //       children: [
+                //         Text(
+                //           selectDate.toString(),
+                //         ),
+                //         OutlineButton(
+                //           onPressed: () {
+                //             showDatePicker(
+                //                 context: context,
+                //                 initialDate: selectDate,
+                //                 firstDate: DateTime(2020),
+                //                 lastDate: DateTime(2050));
+                //           },
+                //           child: Text('DATE PICKER'),
+                //         ),
+                //       ],
+                //     ),
+                //     DropdownButton(
+                //       value: _value,
+                //       items: [
+                //         DropdownMenuItem(
+                //           child: Text('firts item'),
+                //           value: 1,
+                //         ),
+                //         DropdownMenuItem(
+                //           child: Text('firts item'),
+                //           value: 2,
+                //         ),
+                //       ],
+                //       onChanged: (value) {
+                //         setState(() {
+                //           value = _value;
+                //         });
+                //       },
+                //     ),
+                //   ],
+                // ),
                 SizedBox(
                   height: 40,
                 ),
