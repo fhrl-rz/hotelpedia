@@ -62,7 +62,7 @@ class _ProfilState extends State<Profil> {
                   children: [
                     CircleAvatar(
                       radius: 40,
-                      backgroundImage: AssetImage('images/riza.png'),
+                      backgroundImage: AssetImage('images/user.png'),
                     ),
                     SizedBox(
                       width: 20,
@@ -114,6 +114,7 @@ class _ProfilState extends State<Profil> {
               onTap: () {},
               dense: true,
             ),
+            Divider(),
             ListTile(
               trailing: IconButton(
                 onPressed: () {},
@@ -130,6 +131,7 @@ class _ProfilState extends State<Profil> {
               onTap: () {},
               dense: true,
             ),
+            Divider(),
             ListTile(
               trailing: IconButton(
                 onPressed: () {},
@@ -148,6 +150,7 @@ class _ProfilState extends State<Profil> {
               onTap: () {},
               dense: true,
             ),
+            Divider(),
             ListTile(
               trailing: IconButton(
                 onPressed: () {},
@@ -164,6 +167,7 @@ class _ProfilState extends State<Profil> {
               onTap: () {},
               dense: true,
             ),
+            Divider(),
             ListTile(
               title: const Text(
                 'Logout',

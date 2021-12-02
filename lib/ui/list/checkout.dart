@@ -12,6 +12,8 @@ class Checkout extends StatefulWidget {
 
 class _CheckoutState extends State<Checkout> {
   int _value = 1;
+  bool valuefirst = false;
+  bool valuesecond = false;
 
   DateTime selectDate = DateTime.now();
   @override
@@ -174,6 +176,62 @@ class _CheckoutState extends State<Checkout> {
                 //     ),
                 //   ],
                 // ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text(
+                  'Permintaan Khusus',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                CheckboxListTile(
+                  value: valuefirst,
+                  onChanged: (value) {
+                    setState(() {
+                      _value = _value;
+                    });
+                  },
+                  title: Text("Kamar bebas rokok "),
+                  selected: valuefirst,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                ),
+                CheckboxListTile(
+                  value: valuefirst,
+                  onChanged: (value) {
+                    setState(() {
+                      _value = _value;
+                    });
+                  },
+                  title: Text("Lantai Atas"),
+                  selected: valuefirst,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+                ),
+                CheckboxListTile(
+                  value: valuefirst,
+                  onChanged: (value) {
+                    setState(() {
+                      _value = _value;
+                    });
+                  },
+                  title: Text("Lainnya"),
+                  selected: valuefirst,
+                  controlAffinity: ListTileControlAffinity.leading,
+                  contentPadding:
+                      EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                ),
+                Text(
+                  'Total harga',
+                  style: TextStyle(
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
                 SizedBox(
                   height: 40,
                 ),
