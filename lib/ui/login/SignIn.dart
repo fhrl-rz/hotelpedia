@@ -231,7 +231,7 @@ class _SignInState extends State<SignIn> {
           .then((uid) => {
                 Fluttertoast.showToast(msg: "Login Successful"),
                 Navigator.of(context).pushReplacement(
-                    MaterialPageRoute(builder: (context) => Home())),
+                    MaterialPageRoute(builder: (context) => NavigatorBar())),
               })
           .catchError((e) {
         Fluttertoast.showToast(msg: e!.message);
