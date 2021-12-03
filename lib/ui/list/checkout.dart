@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:hotelpedia/ui/list/Review_pesanan.dart';
 
 import 'package:hotelpedia/ui/payment/payment.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
@@ -256,7 +257,7 @@ class _CheckoutState extends State<Checkout> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => Payment()));
+                                      builder: (context) => ReviewPesanan()));
                             },
                             padding: EdgeInsets.symmetric(vertical: 15),
                             color: Color(0xff1E6091),

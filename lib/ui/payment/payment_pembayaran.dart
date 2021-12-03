@@ -48,7 +48,7 @@ class _PaymentPembayaranState extends State<PaymentPembayaran> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.red,
+                  color: Colors.grey,
                   width: 1,
                 ),
                 borderRadius: BorderRadius.circular(10),
