@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:hotelpedia/ui/login/ForgotPassword/forgotemail.dart';
 import 'package:hotelpedia/ui/login/ForgotPassword/forgotsms.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:hotelpedia/ui/model/usermodel.dart';
 
 class ForgotPassword extends StatefulWidget {
   const ForgotPassword({Key? key}) : super(key: key);
@@ -10,6 +13,25 @@ class ForgotPassword extends StatefulWidget {
 }
 
 class _ForgotPasswordState extends State<ForgotPassword> {
+  final TextEditingController emailController = new TextEditingController();
+  User? user = FirebaseAuth.instance.currentUser;
+  UserModel loggedInUser = UserModel();
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseFirestore.instance
+        .collection("user")
+        .doc(user!.uid)
+        .get()
+        .then((value) {
+      this.loggedInUser = UserModel.fromMap(value.data());
+      setState(() {});
+    });
+  }
+
+  final _formKey = GlobalKey<FormState>();
+
   @override
   Widget build(BuildContext context) {
     return Theme(
@@ -110,7 +132,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                                         ),
                                       ),
                                       Text(
-                                        '**** **** 3159',
+                                        '${loggedInUser.PhoneNumber} ',
                                         style: TextStyle(
                                           color: Color(0xff000000),
                                           fontSize: 14,
@@ -129,55 +151,54 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => ForgotViaEmail()));
-                            },
-                            padding: EdgeInsets.symmetric(vertical: 25),
-                            color: Color(0xffd8e0de),
-                            elevation: 0,
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
-                                  child: Column(
-                                    children: [
-                                      Icon(
-                                        Icons.mail,
-                                        color: Color(0xff52B69A),
-                                        size: 30.0,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  margin: EdgeInsets.fromLTRB(0, 0, 60, 0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'via email',
-                                        style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 12,
+                          child: Form(
+                            key: _formKey,
+                            child: MaterialButton(
+                              onPressed: () {},
+                              padding: EdgeInsets.symmetric(vertical: 25),
+                              color: Color(0xffd8e0de),
+                              elevation: 0,
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(20, 0, 0, 0),
+                                    child: Column(
+                                      children: [
+                                        Icon(
+                                          Icons.mail,
+                                          color: Color(0xff52B69A),
+                                          size: 30.0,
                                         ),
-                                      ),
-                                      Text(
-                                        '*********16@gmail.com',
-                                        style: TextStyle(
-                                          color: Color(0xff000000),
-                                          fontSize: 14,
-                                        ),
-                                      ),
-                                    ],
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  Container(
+                                    margin: EdgeInsets.fromLTRB(0, 0, 50, 0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'via email',
+                                          style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: 12,
+                                          ),
+                                        ),
+                                        Text(
+                                          '${loggedInUser.email} ',
+                                          style: TextStyle(
+                                            color: Color(0xff000000),
+                                            fontSize: 14,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),

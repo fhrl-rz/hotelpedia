@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hotelpedia/ui/list/Review_pesanan.dart';
+
+import 'package:hotelpedia/ui/payment/payment.dart';
 import 'package:intl_phone_field/intl_phone_field.dart';
+import 'package:intl/intl.dart';
 
 class Checkout extends StatefulWidget {
   const Checkout({Key? key}) : super(key: key);
@@ -12,12 +14,16 @@ class Checkout extends StatefulWidget {
 
 class _CheckoutState extends State<Checkout> {
   int _value = 1;
-  bool valuefirst = false;
-  bool valuesecond = false;
 
-  DateTime selectDate = DateTime.now();
+  bool _value1 = false;
+  bool _value2 = false;
+  bool _value3 = false;
+
   @override
   Widget build(BuildContext context) {
+    DateTime datetime = DateTime.now();
+    String datetime1 = DateFormat("yyyy-MM-dd").format(datetime);
+    print(datetime1);
     return Theme(
       data: ThemeData(fontFamily: "Montserrat"),
       child: Scaffold(
@@ -136,46 +142,34 @@ class _CheckoutState extends State<Checkout> {
                     Text('Check Out'),
                   ],
                 ),
-                // Row(
-                //   mainAxisAlignment: MainAxisAlignment.spaceAround,
-                //   children: [
-                //     Column(
-                //       children: [
-                //         Text(
-                //           selectDate.toString(),
-                //         ),
-                //         OutlineButton(
-                //           onPressed: () {
-                //             showDatePicker(
-                //                 context: context,
-                //                 initialDate: selectDate,
-                //                 firstDate: DateTime(2020),
-                //                 lastDate: DateTime(2050));
-                //           },
-                //           child: Text('DATE PICKER'),
-                //         ),
-                //       ],
-                //     ),
-                //     DropdownButton(
-                //       value: _value,
-                //       items: [
-                //         DropdownMenuItem(
-                //           child: Text('firts item'),
-                //           value: 1,
-                //         ),
-                //         DropdownMenuItem(
-                //           child: Text('firts item'),
-                //           value: 2,
-                //         ),
-                //       ],
-                //       onChanged: (value) {
-                //         setState(() {
-                //           value = _value;
-                //         });
-                //       },
-                //     ),
-                //   ],
-                // ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    Column(
+                      children: [
+                        Text(datetime1),
+                      ],
+                    ),
+                    DropdownButton(
+                      value: _value,
+                      items: [
+                        DropdownMenuItem(
+                          child: Text(datetime1),
+                          value: 1,
+                        ),
+                        DropdownMenuItem(
+                          child: Text(datetime1),
+                          value: 2,
+                        ),
+                      ],
+                      onChanged: (value) {
+                        setState(() {
+                          value = _value;
+                        });
+                      },
+                    ),
+                  ],
+                ),
                 SizedBox(
                   height: 20,
                 ),
@@ -186,44 +180,59 @@ class _CheckoutState extends State<Checkout> {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                CheckboxListTile(
-                  value: valuefirst,
-                  onChanged: (value) {
-                    setState(() {
-                      _value = _value;
-                    });
-                  },
-                  title: Text("Kamar bebas rokok "),
-                  selected: valuefirst,
-                  controlAffinity: ListTileControlAffinity.leading,
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                ),
-                CheckboxListTile(
-                  value: valuefirst,
-                  onChanged: (value) {
-                    setState(() {
-                      _value = _value;
-                    });
-                  },
-                  title: Text("Lantai Atas"),
-                  selected: valuefirst,
-                  controlAffinity: ListTileControlAffinity.leading,
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-                ),
-                CheckboxListTile(
-                  value: valuefirst,
-                  onChanged: (value) {
-                    setState(() {
-                      _value = _value;
-                    });
-                  },
-                  title: Text("Lainnya"),
-                  selected: valuefirst,
-                  controlAffinity: ListTileControlAffinity.leading,
-                  contentPadding:
-                      EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+                Container(
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _value1,
+                            onChanged: (value) {
+                              setState(() {
+                                _value1 = value!;
+                              });
+                            },
+                          ),
+                          Text("Kamar Bebas rokok",
+                              style: TextStyle(
+                                fontSize: 12,
+                              )),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _value2,
+                            onChanged: (value) {
+                              setState(() {
+                                _value2 = value!;
+                              });
+                            },
+                          ),
+                          Text("Lantai Atas",
+                              style: TextStyle(
+                                fontSize: 12,
+                              )),
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: _value3,
+                            onChanged: (value) {
+                              setState(() {
+                                _value3 = value!;
+                              });
+                            },
+                          ),
+                          Text("Lainnya",
+                              style: TextStyle(
+                                fontSize: 12,
+                              )),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
                 Text(
                   'Total harga',
@@ -247,7 +256,7 @@ class _CheckoutState extends State<Checkout> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => ReviewPesanan()));
+                                      builder: (context) => Payment()));
                             },
                             padding: EdgeInsets.symmetric(vertical: 15),
                             color: Color(0xff1E6091),
