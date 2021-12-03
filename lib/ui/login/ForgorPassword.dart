@@ -16,7 +16,9 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   final TextEditingController emailController = new TextEditingController();
   User? user = FirebaseAuth.instance.currentUser;
   UserModel loggedInUser = UserModel();
+  final auth = FirebaseAuth.instance;
 
+  var email;
   @override
   void initState() {
     super.initState();
@@ -154,7 +156,14 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                           child: Form(
                             key: _formKey,
                             child: MaterialButton(
-                              onPressed: () {},
+                              onPressed: () {
+                                auth.sendPasswordResetEmail(email: email);
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) =>
+                                            ForgotViaEmail()));
+                              },
                               padding: EdgeInsets.symmetric(vertical: 25),
                               color: Color(0xffd8e0de),
                               elevation: 0,
@@ -214,3 +223,6 @@ class _ForgotPasswordState extends State<ForgotPassword> {
     );
   }
 }
+
+
+// ada salah di line 160 "email nya"
